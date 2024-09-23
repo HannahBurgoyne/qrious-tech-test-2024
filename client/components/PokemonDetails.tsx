@@ -7,7 +7,7 @@ interface Props {
 function PokemonDetails({ pokemon }: Props) {
   return (
     <section>
-      <p>
+      <div>
         {' '}
         Abilities:
         {pokemon.abilities.map((ability) => (
@@ -15,15 +15,15 @@ function PokemonDetails({ pokemon }: Props) {
             <a href={`${ability.ability.url}`}>{ability.ability.name}</a>
           </p>
         ))}
-      </p>
-      <p>
+      </div>
+      <div>
         Moves:
         {pokemon.moves.map((move) => (
           <p>
             <a href={`${move.move.url}`}>{move.move.name}</a>
           </p>
         ))}
-      </p>
+      </div>
     </section>
   )
 }
