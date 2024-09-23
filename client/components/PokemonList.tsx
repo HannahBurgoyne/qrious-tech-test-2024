@@ -1,5 +1,6 @@
 import { usePokemon } from '../hooks/usePokemon'
 import PokemonDetails from './PokemonDetails'
+import Icon from './UI/Icon'
 
 function PokemonList() {
   const { data, isError, isFetching } = usePokemon(1)
@@ -16,14 +17,11 @@ function PokemonList() {
             <h1>
               {pokemon.name} {pokemon.id}
             </h1>
-            <p>
-              Types:
-              {pokemon.types.map((type) => (
-                <p>
-                  <a href={`${type.type.url}`}>{type.type.name}</a>
-                </p>
-              ))}
-            </p>
+            {pokemon.types.map((type) => (
+              <Icon backgroundColor={type.type.name}>
+                <a href={`${type.type.url}`}>{type.type.name}</a>
+              </Icon>
+            ))}
             <img
               src={`${pokemon.sprites.front_default}`}
               alt={`sprite for ${pokemon.name}`}
