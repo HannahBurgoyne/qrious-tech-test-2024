@@ -7,22 +7,6 @@ interface Props {
 function PokemonDetails({ pokemon }: Props) {
   return (
     <section>
-      <h1>{pokemon.name}</h1>
-      <p>
-        {' '}
-        Types:
-        {pokemon.types.map((type) => (
-          <p>
-            <a href={`${type.type.url}`}>{type.type.name}</a>
-          </p>
-        ))}
-      </p>
-      <img
-        src={`${pokemon.sprites.front_default}`}
-        alt={`sprite for ${pokemon.name}`}
-      />
-      <p>Height: {pokemon.height}</p>
-      <p>Weight: {pokemon.weight}</p>
       <p>
         {' '}
         Abilities:
