@@ -1,11 +1,13 @@
 {
-  "name": "boilerplate-fullstack",
+  "name": "qrious-tech-test-2024",
   "type": "module",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "main": "server/index.js",
   "license": "MIT",
   "keywords": [
-    "fullstack"
+    "fullstack", 
+    "tech-test", 
+    "pokemon"
   ],
   "scripts": {
     "test": "vitest",
@@ -29,7 +31,7 @@
     "express": "^4.17.2",
     "knex": "^2.5.1",
     "sqlite3": "^5.1.6",
-    "superagent": "^8.1.2"
+    "superagent": "^9.1.0"
   },
   "devDependencies": {
     "@devacademy/eslint-config": "^1.10.1",
