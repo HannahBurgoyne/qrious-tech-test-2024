@@ -53,7 +53,7 @@ function PokemonDetails() {
           </div>
         </div>
         <h2 className="font-heading text-lg font-semibold mt-6">Moves:</h2>
-        <div className="grid grid-cols-5 gap-2">
+        <div className="grid grid-cols-5 gap-2 p-6">
           {pokemon.moves.map((move) => (
             <p key={move.move.name}>
               <a href={`${move.move.url}`}>{move.move.name}</a>

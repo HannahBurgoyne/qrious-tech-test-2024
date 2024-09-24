@@ -37,7 +37,7 @@ function PokemonList() {
               />
               <div className="flex justify-around items-start">
                 <p className="font-body text-md">Height: {pokemon.height}</p>
-                <p className="font-body text-md">Weight: {pokemon.weight}</p>
+                <p className="font-body text-md">Weight: {pokemon.weight}lbs</p>
               </div>
               {/* <PokemonDetails pokemon={pokemon} /> */}
             </div>
