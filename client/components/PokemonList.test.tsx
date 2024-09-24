@@ -116,4 +116,47 @@ describe('PokemonList', () => {
     expect(scope.isDone()).toBe(true)
     expect(pokemonScope.isDone()).toBe(true)
   })
+
+  it('filters the list of pokemon by name', async () => {
+    // Mock the generation fetch response
+    const scope = nock('https://pokeapi.co')
+      .get('/api/v2/generation/1')
+      .reply(200, {
+        pokemon_species: [{ name: 'bulbasaur' }, { name: 'charmander' }],
+      })
+
+    // Mock the individual Pokemon fetch responses
+    const scope2 = nock('https://pokeapi.co')
+      .get('/api/v2/pokemon/bulbasaur')
+      .reply(200, mockPokemonData[0])
+
+    const scope3 = nock('https://pokeapi.co')
+      .get('/api/v2/pokemon/charmander')
+      .reply(200, mockPokemonData[1])
+
+    const { user, ...screen } = setupApp('/')
+
+    // Wait for Pokémon to load and ensure both Pokémon are displayed
+    await screen.findByText('Bulbasaur')
+    await screen.findByText('Charmander')
+
+    // Get the type filter and select a type if necessary
+    // const typeFilter = await screen.findByRole('select')
+    await user.selectOptions(screen.getByRole('combobox'), 'All Types')
+
+    expect(scope.isDone()).toBe(true)
+    expect(scope2.isDone()).toBe(true)
+    expect(scope3.isDone()).toBe(true)
+
+    // Get the search input and type 'Bulbasaur'
+    const searchInput = await screen.findByPlaceholderText(
+      'Search by name or number'
+    )
+
+    await user.type(searchInput, 'Bulbasaur')
+
+    // Check if only Bulbasaur is displayed
+    expect(await screen.findByText('Bulbasaur')).toBeInTheDocument()
+    expect(screen.queryByText('Charmander')).not.toBeInTheDocument()
+  })
 })
