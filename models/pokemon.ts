@@ -33,11 +33,17 @@ export interface Pokemon {
     front_default: string
     back_default: string
   }
+  base_experience: number
+  cries: PokemonCries
   abilities: Ability[]
   moves: Move[]
   types: TypeInfo[]
 }
 
+interface PokemonCries {
+  latest: string
+  legacy: string
+}
 interface Ability {
   ability: { name: string; url: string }
   is_hidden: boolean
