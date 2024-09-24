@@ -152,4 +152,36 @@ describe('PokemonList', () => {
     expect(await screen.findByText('bulbasaur')).toBeInTheDocument()
     expect(screen.queryByText('charmander')).not.toBeInTheDocument()
   })
+
+  it('filters the list of pokemon by type', async () => {
+    // Mock the generation fetch response
+    const scope = nock('https://pokeapi.co')
+      .get('/api/v2/generation/1')
+      .reply(200, {
+        pokemon_species: [{ name: 'bulbasaur' }, { name: 'charmander' }],
+      })
+
+    // Mock the individual Pokemon fetch responses
+    const scope2 = nock('https://pokeapi.co')
+      .get('/api/v2/pokemon/bulbasaur')
+      .reply(200, mockPokemonData[0])
+
+    const scope3 = nock('https://pokeapi.co')
+      .get('/api/v2/pokemon/charmander')
+      .reply(200, mockPokemonData[1])
+
+    const { user, ...screen } = setupApp('/')
+
+    await screen.findByText('bulbasaur')
+    await screen.findByText('charmander')
+
+    expect(scope.isDone()).toBe(true)
+    expect(scope2.isDone()).toBe(true)
+    expect(scope3.isDone()).toBe(true)
+
+    await user.selectOptions(screen.getByRole('combobox'), 'fire')
+
+    expect(await screen.findByText('charmander')).toBeInTheDocument()
+    expect(screen.queryByText('bulbasaur')).not.toBeInTheDocument()
+  })
 })
