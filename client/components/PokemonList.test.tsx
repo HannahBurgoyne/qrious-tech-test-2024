@@ -10,7 +10,7 @@ beforeAll(() => {
 const mockPokemonData = [
   {
     id: 1,
-    name: 'Bulbasaur',
+    name: 'bulbasaur',
     height: 7,
     weight: 69,
     sprites: {
@@ -55,7 +55,7 @@ const mockPokemonData = [
   },
   {
     id: 4,
-    name: 'Charmander',
+    name: 'charmander',
     height: 6,
     weight: 85,
     sprites: {
@@ -111,7 +111,7 @@ describe('PokemonList', () => {
     const screen = setupApp('/')
 
     const heading = await screen.findByRole('heading', { level: 1 })
-    expect(heading).toHaveTextContent('Bulbasaur')
+    expect(heading).toHaveTextContent('bulbasaur')
 
     expect(scope.isDone()).toBe(true)
     expect(pokemonScope.isDone()).toBe(true)
@@ -136,27 +136,22 @@ describe('PokemonList', () => {
 
     const { user, ...screen } = setupApp('/')
 
-    // Wait for Pokémon to load and ensure both Pokémon are displayed
-    await screen.findByText('Bulbasaur')
-    await screen.findByText('Charmander')
-
-    // Get the type filter and select a type if necessary
-    // const typeFilter = await screen.findByRole('select')
-    await user.selectOptions(screen.getByRole('combobox'), 'All Types')
+    await screen.findByText('bulbasaur')
+    await screen.findByText('charmander')
 
     expect(scope.isDone()).toBe(true)
     expect(scope2.isDone()).toBe(true)
     expect(scope3.isDone()).toBe(true)
 
-    // Get the search input and type 'Bulbasaur'
     const searchInput = await screen.findByPlaceholderText(
       'Search by name or number'
     )
 
-    await user.type(searchInput, 'Bulbasaur')
+    console.log(searchInput)
 
-    // Check if only Bulbasaur is displayed
-    expect(await screen.findByText('Bulbasaur')).toBeInTheDocument()
-    expect(screen.queryByText('Charmander')).not.toBeInTheDocument()
+    await user.type(searchInput, 'bulbasaur')
+
+    expect(await screen.findByText('bulbasaur')).toBeInTheDocument()
+    expect(screen.queryByText('charmander')).not.toBeInTheDocument()
   })
 })
