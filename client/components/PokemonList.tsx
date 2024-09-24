@@ -11,7 +11,7 @@ function PokemonList() {
 
   if (data)
     return (
-      <section className="grid grid-cols-4 gap-4 p-6 bg-slate-400">
+      <section className="grid grid-cols-4 gap-4 p-6 bg-background">
         {data.map((pokemon) => (
           <Link to={`/pokemon/${pokemon.id}`}>
             <div className="bg-white p-6 rounded">
