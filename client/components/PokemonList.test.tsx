@@ -147,8 +147,6 @@ describe('PokemonList', () => {
       'Search by name or number'
     )
 
-    console.log(searchInput)
-
     await user.type(searchInput, 'bulbasaur')
 
     expect(await screen.findByText('bulbasaur')).toBeInTheDocument()
