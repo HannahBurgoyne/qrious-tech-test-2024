@@ -1,5 +1,4 @@
 import { usePokemon } from '../hooks/usePokemon'
-import PokemonDetails from './PokemonDetails'
 import Icon from './UI/Icon'
 
 function PokemonList() {
@@ -17,7 +16,9 @@ function PokemonList() {
             <h1 className="font-heading text-xl font-semibold">
               {pokemon.name}
             </h1>
-            <h2 className="font-heading text-lg font-light">{`#00${pokemon.id}`}</h2>
+            <h2 className="font-heading text-lg font-light">{`#${pokemon.id
+              .toString()
+              .padStart(4, '0')}`}</h2>
             <div className="flex justify-start">
               {pokemon.types.map((type) => (
                 <Icon backgroundColor={type.type.name}>
@@ -32,8 +33,10 @@ function PokemonList() {
               alt={`sprite for ${pokemon.name}`}
               className="w-48"
             />
-            <p>Height: {pokemon.height}</p>
-            <p>Weight: {pokemon.weight}</p>
+            <div className="flex justify-around items-start">
+              <p className="font-body text-md">Height: {pokemon.height}</p>
+              <p className="font-body text-md">Weight: {pokemon.weight}</p>
+            </div>
             {/* <PokemonDetails pokemon={pokemon} /> */}
           </div>
         ))}
