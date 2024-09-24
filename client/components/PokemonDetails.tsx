@@ -8,7 +8,6 @@ function PokemonDetails({ pokemon }: Props) {
   return (
     <section>
       <div>
-        {' '}
         Abilities:
         {pokemon.abilities.map((ability) => (
           <p>
