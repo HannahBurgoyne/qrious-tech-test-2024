@@ -123,3 +123,49 @@ export const mockPokemonData = [
     ],
   },
 ]
+
+export const mockUnknownPokemonData = {
+  id: 1,
+  name: 'bulbasaur',
+  height: 7,
+  weight: 69,
+  sprites: {
+    front_default: 'test-front-bulbasaur.png',
+    back_default: 'test-back-bulbasaur.png',
+  },
+  base_experience: 64,
+  cries: {
+    latest: 'test-latest-cry-bulbasaur.ogg',
+    legacy: 'test-legacy-cry-bulbasaur.ogg',
+  },
+  abilities: [
+    {
+      ability: { name: 'Overgrow', url: 'test-ability' },
+      is_hidden: false,
+      slot: 1,
+    },
+    {
+      ability: { name: 'Chlorophyll', url: 'test-ability' },
+      is_hidden: true,
+      slot: 3,
+    },
+  ],
+  moves: [
+    {
+      move: { name: 'Tackle', url: 'test-move' },
+    },
+    {
+      move: { name: 'Vine Whip', url: 'test-move' },
+    },
+  ],
+  types: [
+    {
+      slot: 1,
+      type: { name: 'unknown', url: 'test-type' },
+    },
+    {
+      slot: 2,
+      type: { name: 'unknown', url: 'test-type' },
+    },
+  ],
+}
