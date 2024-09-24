@@ -34,7 +34,13 @@ function Icon({ children, backgroundColor, ...props }: Props) {
       : 'bg-slate-400'
 
   return (
-    <div className={classNames('rounded p-2', bgColor)} {...props}>
+    <div
+      className={classNames(
+        'w-20 flex justify-center items-center rounded p-2 m-2',
+        bgColor
+      )}
+      {...props}
+    >
       {children}
     </div>
   )
