@@ -1,7 +1,4 @@
-import { Link } from 'react-router-dom'
 import { usePokemon } from '../hooks/usePokemon'
-import Icon from './UI/Icon'
-import convertMeasurement from '../utils/convertMeasurement'
 import PokemonCard from './PokemonCard'
 
 function PokemonList() {
