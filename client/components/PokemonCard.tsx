@@ -17,8 +17,8 @@ function PokemonCard({ pokemon }: Props) {
           .padStart(4, '0')}`}</h2>
         <div className="flex justify-start">
           {pokemon.types.map((type) => (
-            <Icon backgroundColor={type.type.name}>
-              <a href={`${type.type.url}`}>{type.type.name}</a>
+            <Icon key={type.type.name} backgroundColor={type.type.name}>
+              {type.type.name}
             </Icon>
           ))}
         </div>
@@ -39,4 +39,5 @@ function PokemonCard({ pokemon }: Props) {
     </Link>
   )
 }
+
 export default PokemonCard

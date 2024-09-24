@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { usePokemon } from '../hooks/usePokemon'
 import Icon from './UI/Icon'
 
@@ -32,9 +32,7 @@ function PokemonDetails() {
           <div>
             <div className="flex justify-start">
               {pokemon.types.map((type) => (
-                <Icon backgroundColor={type.type.name}>
-                  <a href={`${type.type.url}`}>{type.type.name}</a>
-                </Icon>
+                <Icon backgroundColor={type.type.name}>{type.type.name}</Icon>
               ))}
             </div>
             <h2 className="font-heading text-lg font-semibold">
