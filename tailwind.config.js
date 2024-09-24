@@ -3,6 +3,32 @@ export default {
   content: ['./index.html', './client/**/*.tsx'],
   theme: {
     extend: {
+      fontFamily: {
+        heading: ['Source Code Pro', 'sans-serif'],
+        body: ['Source Code Pro', 'sans-serif'],
+      },
+      fontSize: {
+        xs: '0.75rem',
+        sm: '0.875rem',
+        base: '1rem',
+        lg: '1.125rem',
+        xl: '1.25rem',
+        '2xl': '1.5rem',
+        '3xl': '1.875rem',
+        '4xl': '2.25rem',
+        '5xl': '3rem',
+        '6xl': '3.75rem',
+      },
+      fontWeight: {
+        thin: 100,
+        light: 300,
+        normal: 400,
+        medium: 500,
+        semibold: 600,
+        bold: 700,
+        extrabold: 800,
+        black: 900,
+      },
       // colors sourced from here: https://gist.github.com/apaleslimghost/0d25ec801ca4fc43317bcff298af43c3
       colors: {
         normal: '#A8A77A',
