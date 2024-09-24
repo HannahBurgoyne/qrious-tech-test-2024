@@ -5,7 +5,9 @@ import SearchBar from './UI/SearchBar'
 import TypeFilter from './UI/TypeFilter'
 
 function PokemonList() {
-  const { data, isError, isFetching } = usePokemon(1)
+  const generationNumber = 1
+
+  const { data, isError, isFetching } = usePokemon(generationNumber)
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedType, setSelectedType] = useState('')
 
@@ -38,7 +40,7 @@ function PokemonList() {
               <PokemonCard key={pokemon.id} pokemon={pokemon} />
             ))
           ) : (
-            <p>No Pokémon found!</p>
+            <p>No Pokémon matches your criteria!</p>
           )}
         </div>
       </section>
