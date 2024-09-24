@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { usePokemon } from '../hooks/usePokemon'
 import Icon from './UI/Icon'
+import convertMeasurement from '../utils/convertMeasurement'
 
 function PokemonList() {
   const { data, isError, isFetching } = usePokemon(1)
@@ -36,10 +37,13 @@ function PokemonList() {
                 className="w-48"
               />
               <div className="flex justify-around items-start">
-                <p className="font-body text-md">Height: {pokemon.height}</p>
-                <p className="font-body text-md">Weight: {pokemon.weight}lbs</p>
+                <p className="font-body text-md">
+                  Height: {convertMeasurement(pokemon.height)}m
+                </p>
+                <p className="font-body text-md">
+                  Weight: {convertMeasurement(pokemon.weight)}kgs
+                </p>
               </div>
-              {/* <PokemonDetails pokemon={pokemon} /> */}
             </div>
           </Link>
         ))}
