@@ -7,6 +7,7 @@ function SearchBar({ searchTerm, setSearchTerm }: Props) {
   return (
     <div className="mb-4">
       <input
+        aria-label="search for a pokemon here"
         type="text"
         placeholder="Search by name or number"
         value={searchTerm}
