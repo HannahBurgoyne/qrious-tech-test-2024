@@ -12,6 +12,7 @@ function TypeFilter({ selectedType, setSelectedType }: Props) {
       value={selectedType}
       onChange={(e) => setSelectedType(e.target.value)}
       className="border p-2 rounded"
+      aria-label="filter by pokemon type here"
     >
       <option value="">All Types</option>
       {types.map((type) => (
