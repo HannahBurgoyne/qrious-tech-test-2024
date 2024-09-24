@@ -31,6 +31,7 @@ export default {
       },
       // colors sourced from here: https://gist.github.com/apaleslimghost/0d25ec801ca4fc43317bcff298af43c3
       colors: {
+        background: 'bg-slate-400',
         normal: '#A8A77A',
         fire: '#EE8130',
         water: '#6390F0',
