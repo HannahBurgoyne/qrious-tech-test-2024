@@ -32,6 +32,20 @@ describe('PokemonDetails', () => {
     expect(pokemonScope.isDone()).toBe(true)
   })
 
+  it('shows an error message if pokemon is not found', async () => {
+    // Mock the generation fetch response
+    const scope = nock('https://pokeapi.co')
+      .get('/api/v2/generation/1')
+      .reply(500)
+
+    const screen = setupApp('/pokemon/1')
+
+    const errMessage = await screen.findByText('Pokémon not found!')
+    expect(errMessage).toBeInTheDocument()
+
+    expect(scope.isDone()).toBe(true)
+  })
+
   it('renders a grey icon if pokemon type is unknown', async () => {
     // Mock the generation fetch response
     const scope = nock('https://pokeapi.co')
