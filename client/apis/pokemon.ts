@@ -10,13 +10,39 @@ export async function fetchPokemonByGeneration(
 
   const allPokemon = res.body.pokemon_species
 
-  const firstGenPokemon = await Promise.all(
+  const genOnePokemon = await Promise.all(
     allPokemon?.map(async (pokemon: ApiLink) => {
       const res = await request.get(
         `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`
       )
-      return res.body
+
+      const {
+        id,
+        name,
+        height,
+        weight,
+        sprites,
+        base_experience,
+        cries,
+        abilities,
+        moves,
+        types,
+      } = res.body
+
+      return {
+        id,
+        name,
+        height,
+        weight,
+        sprites,
+        base_experience,
+        cries,
+        abilities,
+        moves,
+        types,
+      }
     })
   )
-  return firstGenPokemon as Pokemon[]
+
+  return genOnePokemon as Pokemon[]
 }
