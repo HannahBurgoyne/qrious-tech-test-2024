@@ -8,9 +8,9 @@ function PokemonDetails() {
 
   const pokemon = data?.find((poke) => poke.id.toString() === id)
 
-  console.log(pokemon)
+  if (isFetching) return <p>Loading...</p>
 
-  if (!pokemon) return <p>Pokémon not found!</p>
+  if (!pokemon || isError) return <p>Pokémon not found!</p>
   return (
     <section className="bg-background p-10">
       <div className="bg-white rounded p-5 max-w-3xl mx-auto">
