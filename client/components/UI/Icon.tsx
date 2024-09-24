@@ -1,11 +1,12 @@
 import classNames from 'classnames'
+import { back } from 'nock'
 
 interface Props {
   children: React.ReactNode
   backgroundColor?: string
 }
 
-// because Tailwind cannot dynamically render colors at runtime, this logic is necessary to render icon color based on the pokemon type
+// Color mapping for the background
 const colorMap: { [key: string]: string } = {
   normal: 'bg-normal',
   fire: 'bg-fire',
@@ -33,6 +34,15 @@ function Icon({ children, backgroundColor, ...props }: Props) {
       ? colorMap[backgroundColor]
       : 'bg-slate-400'
 
+  // Determine text color based on the type
+  const textColor =
+    backgroundColor === 'fighting' ||
+    backgroundColor === 'poison' ||
+    backgroundColor === 'ghost' ||
+    backgroundColor === 'dragon'
+      ? 'text-white'
+      : 'text-black'
+
   return (
     <div
       className={classNames(
@@ -41,7 +51,7 @@ function Icon({ children, backgroundColor, ...props }: Props) {
       )}
       {...props}
     >
-      {children}
+      <p className={classNames('text-sm font-body', textColor)}>{children}</p>
     </div>
   )
 }

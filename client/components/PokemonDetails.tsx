@@ -33,9 +33,7 @@ function PokemonDetails() {
             <div className="flex justify-start">
               {pokemon.types.map((type) => (
                 <Icon backgroundColor={type.type.name}>
-                  <p className="text-sm font-body">
-                    <a href={`${type.type.url}`}>{type.type.name}</a>
-                  </p>
+                  <a href={`${type.type.url}`}>{type.type.name}</a>
                 </Icon>
               ))}
             </div>
