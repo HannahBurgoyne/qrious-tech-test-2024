@@ -11,22 +11,24 @@ function PokemonDetails() {
 
   if (!pokemon) return <p>Pokémon not found!</p>
   return (
-    <section>
-      <div>
-        Abilities:
-        {pokemon.abilities.map((ability) => (
-          <p>
-            <a href={`${ability.ability.url}`}>{ability.ability.name}</a>
-          </p>
-        ))}
-      </div>
-      <div>
-        Moves:
-        {pokemon.moves.map((move) => (
-          <p>
-            <a href={`${move.move.url}`}>{move.move.name}</a>
-          </p>
-        ))}
+    <section className="bg-background p-10">
+      <div className="bg-white rounded p-5 max-w-3xl mx-auto">
+        <div>
+          Abilities:
+          {pokemon.abilities.map((ability) => (
+            <p>
+              <a href={`${ability.ability.url}`}>{ability.ability.name}</a>
+            </p>
+          ))}
+        </div>
+        <div>
+          Moves:
+          {pokemon.moves.map((move) => (
+            <p>
+              <a href={`${move.move.url}`}>{move.move.name}</a>
+            </p>
+          ))}
+        </div>
       </div>
     </section>
   )
