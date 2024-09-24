@@ -1,5 +1,4 @@
 import { Outlet } from 'react-router-dom'
-import PokemonList from './PokemonList'
 
 function App() {
   return (
