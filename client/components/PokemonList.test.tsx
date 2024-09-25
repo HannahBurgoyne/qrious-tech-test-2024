@@ -138,7 +138,7 @@ describe('PokemonList', () => {
       .get('/api/v2/generation/1')
       .reply(500)
 
-    const { user, ...screen } = setupApp('/')
+    const { ...screen } = setupApp('/')
 
     await waitFor(() => {
       expect(screen.getByText('Oops, error!')).toBeInTheDocument()

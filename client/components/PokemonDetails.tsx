@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { usePokemon } from '../hooks/usePokemon'
 import Icon from './UI/Icon'
 
@@ -24,7 +24,7 @@ function PokemonDetails() {
               alt={`sprite for ${pokemon.name}`}
               className="w-48"
             />
-            <audio controls>
+            <audio controls aria-label={`sound of a ${pokemon.name}`}>
               <source src={pokemon.cries.latest} type="audio/ogg" />
               Your browser does not support the audio element.
             </audio>
@@ -32,7 +32,9 @@ function PokemonDetails() {
           <div>
             <div className="flex justify-start">
               {pokemon.types.map((type) => (
-                <Icon backgroundColor={type.type.name}>{type.type.name}</Icon>
+                <Icon key={type.type.name} backgroundColor={type.type.name}>
+                  {type.type.name}
+                </Icon>
               ))}
             </div>
             <h2 className="font-heading text-lg font-semibold">
