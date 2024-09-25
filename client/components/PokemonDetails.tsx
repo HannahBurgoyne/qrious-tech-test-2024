@@ -3,8 +3,9 @@ import { usePokemon } from '../hooks/usePokemon'
 import Icon from './UI/Icon'
 
 function PokemonDetails() {
+  const generationNumber = 1
   const { id } = useParams()
-  const { data, isError, isFetching } = usePokemon(1)
+  const { data, isError, isFetching } = usePokemon(generationNumber)
 
   const pokemon = data?.find((poke) => poke.id.toString() === id)
 
@@ -45,7 +46,7 @@ function PokemonDetails() {
             <h2 className="font-heading text-lg font-semibold">Abilities:</h2>
             {pokemon.abilities.map((ability) => (
               <p className="p-2" key={ability.ability.name}>
-                <a href={`${ability.ability.url}`}>{ability.ability.name}</a>
+                {ability.ability.name}
               </p>
             ))}
           </div>
@@ -53,9 +54,7 @@ function PokemonDetails() {
         <h2 className="font-heading text-lg font-semibold mt-6">Moves:</h2>
         <div className="grid grid-cols-5 gap-2 p-6">
           {pokemon.moves.map((move) => (
-            <p key={move.move.name}>
-              <a href={`${move.move.url}`}>{move.move.name}</a>
-            </p>
+            <p key={move.move.name}>{move.move.name}</p>
           ))}
         </div>
       </div>
