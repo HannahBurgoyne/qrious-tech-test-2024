@@ -61,7 +61,6 @@ describe('PokemonDetails', () => {
 
     const types = await screen.findAllByText('unknown')
 
-    screen.debug()
     // because Icon has nested elements, we need to zoom out from the anchor tag to locate the outer styling of the div
     expect(types[0].parentElement?.className).toStrictEqual(
       'w-20 flex justify-center items-center rounded p-2 m-2 bg-slate-400'
