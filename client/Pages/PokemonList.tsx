@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { usePokemon } from '../hooks/usePokemon'
-import PokemonCard from './PokemonCard'
-import SearchBar from './UI/SearchBar'
-import TypeFilter from './UI/TypeFilter'
+import PokemonCard from '../components/PokemonCard'
+import SearchBar from '../components/UI/SearchBar'
+import TypeFilter from '../components/UI/TypeFilter'
 
 function PokemonList() {
   const generationNumber = 1

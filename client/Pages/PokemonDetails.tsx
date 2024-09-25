@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { usePokemon } from '../hooks/usePokemon'
-import Icon from './UI/Icon'
+import Icon from '../components/UI/Icon'
 
 function PokemonDetails() {
   const generationNumber = 1
