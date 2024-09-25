@@ -30,7 +30,7 @@ function PokemonList() {
 
   if (filteredPokemon)
     return (
-      <section className="bg-background p-10">
+      <section className="p-10">
         <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         <TypeFilter
           selectedType={selectedType}
