@@ -1,29 +1,3 @@
-// Number (id column in the JSON)
-// o Name
-// o Type
-// o Height
-// o Weight
-
-export interface PokemonGeneration {
-  id: number
-  main_region: ApiLink
-  moves: ApiLink[]
-  name: string
-  names: Name[]
-  pokemon_species: ApiLink[]
-  types: ApiLink[]
-}
-
-export interface Name {
-  language: ApiLink
-  name: string
-}
-
-export interface ApiLink {
-  name: string
-  url: string
-}
-
 export interface Pokemon {
   id: number
   name: string
