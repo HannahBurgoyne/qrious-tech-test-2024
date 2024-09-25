@@ -32,8 +32,11 @@ function PokemonDetails() {
           </div>
           <div>
             <div className="flex justify-start">
-              {pokemon.types.map((type) => (
-                <Icon key={type.type.name} backgroundColor={type.type.name}>
+              {pokemon.types.map((type, i) => (
+                <Icon
+                  key={`key ${i} for ${type.type.name}`}
+                  backgroundColor={type.type.name}
+                >
                   {type.type.name}
                 </Icon>
               ))}

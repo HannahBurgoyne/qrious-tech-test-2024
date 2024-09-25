@@ -16,8 +16,11 @@ function PokemonCard({ pokemon }: Props) {
           .toString()
           .padStart(4, '0')}`}</h2>
         <div className="flex justify-start">
-          {pokemon.types.map((type) => (
-            <Icon key={type.type.name} backgroundColor={type.type.name}>
+          {pokemon.types.map((type, i) => (
+            <Icon
+              key={`key ${i} for ${type.type.name}`}
+              backgroundColor={type.type.name}
+            >
               {type.type.name}
             </Icon>
           ))}
