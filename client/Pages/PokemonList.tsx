@@ -12,9 +12,11 @@ function PokemonList() {
   const [selectedType, setSelectedType] = useState('')
 
   const filteredPokemon = data?.filter((pokemon) => {
+    const paddedId = pokemon.id.toString().padStart(4, '0')
     const matchesSearchTerm =
       pokemon.name.includes(searchTerm.toLowerCase()) ||
-      pokemon.id.toString().includes(searchTerm)
+      paddedId.includes(searchTerm.padStart(4, '0'))
+
     const matchesType = selectedType
       ? pokemon.types.some((type) => type.type.name === selectedType)
       : true
