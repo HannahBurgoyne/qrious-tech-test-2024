@@ -6,7 +6,8 @@ This tech test uses the PokeAPI to render a Pokedex. All 151 pokemon from the fi
 ```
 git clone
 npm i
-npm run dev 
+npm run dev
+// project runs in browser on localhost:5173
 ```
 
 ## How to run the tests 
